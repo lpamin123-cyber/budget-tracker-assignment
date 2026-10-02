@@ -7,7 +7,7 @@ body {
     padding: 20px;
 }
 
-/* Element & ID Selector: Main Header */
+/* Header & Logo */
 #main-header {
     text-align: center;
     background-color: #2c3e50;
@@ -17,16 +17,18 @@ body {
     margin-bottom: 20px;
 }
 
+#main-header .logo {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
 #main-header h1 {
-    margin: 0 0 10px 0;
-}
-
-#main-header p {
+    display: inline-block;
     margin: 0;
-    font-size: 1.1rem;
+    vertical-align: middle;
 }
 
-/* Class Selector: Card Sections */
+/* Card Sections */
 .card {
     background-color: #ffffff;
     padding: 20px;
@@ -35,12 +37,19 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* ID Selector: Add Expense Section */
-#add-expense-section {
-    border-left: 5px solid #3498db;
+.instructions summary {
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Form Styles */
+/* Direct Child Selector (Requirement) */
+#add-expense-section > h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+/* Form Styles & Focus State (Requirement) */
 .input-group {
     margin-bottom: 15px;
 }
@@ -51,12 +60,24 @@ body {
     font-weight: bold;
 }
 
-.input-group input {
+.input-group input, .input-group select {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+/* Focus State Selector (Requirement) */
+input:focus, select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* Negation Pseudo-class Selector (Requirement) */
+input:not([type="button"]) {
+    background-color: #fafafa;
 }
 
 .btn {
@@ -68,12 +89,34 @@ body {
     cursor: pointer;
 }
 
-/* ID Selector: Expenses List Section */
-#expenses-list-section {
-    border-left: 5px solid #2ecc71;
+.btn:hover {
+    background-color: #2980b9;
 }
 
-.placeholder-text {
-    font-style: italic;
-    color: #7f8c8d;
+/* Table Styling & Descendant Selectors (Requirement) */
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.expense-table th, .expense-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Position-based Pseudo-class Selector (Requirement) */
+.expense-table thead tr {
+    background-color: #2c3e50;
+    color: #ffffff;
+}
+
+.expense-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Table Row Hover State */
+.expense-table tbody tr:hover {
+    background-color: #eaf2f8;
 }
