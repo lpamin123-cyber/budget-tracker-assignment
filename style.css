@@ -1,0 +1,79 @@
+/* Reset basic spacing */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Element & ID Selector: Main Header */
+#main-header {
+    text-align: center;
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#main-header h1 {
+    margin: 0 0 10px 0;
+}
+
+#main-header p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Class Selector: Card Sections */
+.card {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ID Selector: Add Expense Section */
+#add-expense-section {
+    border-left: 5px solid #3498db;
+}
+
+/* Form Styles */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ID Selector: Expenses List Section */
+#expenses-list-section {
+    border-left: 5px solid #2ecc71;
+}
+
+.placeholder-text {
+    font-style: italic;
+    color: #7f8c8d;
+}
