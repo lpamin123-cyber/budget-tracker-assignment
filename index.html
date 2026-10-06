@@ -7,45 +7,79 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-cat << 'EOF' > style.css
-/* 1. Color Palette & Variables (Rubric Criteria 1) */
-:root {
-  --color-bg: #F4F6F8;
-  --color-card-bg: #FFFFFF;
-  --color-text-main: #1F2937;
-  --color-text-muted: #6B7280;
-  --color-primary: #0D9488;
-  --color-primary-hover: #0F766E;
-  --color-danger: #EF4444;
-  --color-danger-hover: #DC2626;
-  --color-border: #E5E7EB;
-  --color-row-alt: #F9FAFB;
-}
+  <!-- Card 1: Page Header -->
+  <header class="card header-card">
+    <h1>Budget Tracker</h1>
+    <p>Track your daily expenses and keep your finances in check.</p>
+  </header>
 
+  <!-- Card 2: Add Expense Form -->
+  <section class="card form-card">
+    <h2>Add New Expense</h2>
+    <form id="expense-form">
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input type="text" id="description" placeholder="e.g. Groceries" required>
+      </div>
 
-cat << 'EOF' > README.md
-# Personal Budget Tracker - Visual Identity
+      <div class="form-group">
+        <label for="category">Category</label>
+        <select id="category" required>
+          <option value="" disabled selected>Select Category</option>
+          <option value="Food">Food & Dining</option>
+          <option value="Transport">Transportation</option>
+          <option value="Utilities">Utilities & Bills</option>
+          <option value="Entertainment">Entertainment</option>
+        </select>
+      </div>
 
-A responsive visual interface for tracking personal expenses, created for the Week 3 Visual Identity CSS Assignment.
+      <div class="form-group">
+        <label for="amount">Amount ($)</label>
+        <input type="number" id="amount" placeholder="0.00" step="0.01" required>
+      </div>
 
-## 🎨 Visual Identity & Architecture
+      <button type="submit" class="btn btn-primary">Add Expense</button>
+    </form>
+  </section>
 
-### 1. Intentional Color Palette (25%)
-- **Primary Accent (`#0D9488` Deep Teal):** Used for primary section headers, action buttons, and table headers.
-- **Background (`#F4F6F8` Light Gray):** Soft contrast background separating content sections.
-- **Card Fill (`#FFFFFF` White):** Clean container background for readability.
-- **Danger Action (`#EF4444` Soft Red):** Strictly reserved for destructive actions (Delete button).
+  <!-- Card 3: Expense Table -->
+  <section class="card table-card">
+    <h2>Expense Log</h2>
+    <table class="expense-table">
+      <thead>
+        <tr>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Weekly Grocery Run</td>
+          <td>Food</td>
+          <td>$124.50</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Monthly Internet Bill</td>
+          <td>Utilities</td>
+          <td>$60.00</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+        <tr>
+          <td>Bus Pass Top-up</td>
+          <td>Transport</td>
+          <td>$35.00</td>
+          <td><button class="btn btn-danger">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
 
-### 2. Typography & Hierarchy (20%)
-- **Headings:** Google Font **Poppins** (Bold, 600/700 weight) for sharp title hierarchy.
-- **Body & Controls:** Google Font **Inter** (Regular/Medium) for readable text, form controls, and table data.
-
-### 3. Form & Table Styling (30%)
-- Form fields include internal padding, clear focus highlights, and unified layout gaps.
-- The expense log table uses structured padding, highlighted header styling, border divisions, and `nth-child(even)` zebra striping.
-
-### 4. CSS Box Model Strategy (25%)
-- Utilizes explicit **margins** (`1.5rem`) to create distinct spacing between page areas.
-- Applies consistent **padding** (`1.5rem`) inside each `.card` container.
-- Defines **border-radius** (`8px`) for modern rounded edges on containers, inputs, and table headers.
+</body>
+</html>
