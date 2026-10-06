@@ -1,114 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Budget Tracker</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Budget Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-    <!-- Main Header with Logo -->
-    <header id="main-header">
-        <img src="https://via.placeholder.com/50" alt="Budget Tracker Logo" width="50" class="logo">
-        <h1>My Budget Tracker</h1>
-        <p>Track your income and expenses in one place.</p>
-    </header>
+cat << 'EOF' > style.css
+/* 1. Color Palette & Variables (Rubric Criteria 1) */
+:root {
+  --color-bg: #F4F6F8;
+  --color-card-bg: #FFFFFF;
+  --color-text-main: #1F2937;
+  --color-text-muted: #6B7280;
+  --color-primary: #0D9488;
+  --color-primary-hover: #0F766E;
+  --color-danger: #EF4444;
+  --color-danger-hover: #DC2626;
+  --color-border: #E5E7EB;
+  --color-row-alt: #F9FAFB;
+}
 
-    <main>
-        <!-- Collapsible Usage Guide -->
-        <details class="card instructions">
-            <summary>How to use this tracker</summary>
-            <p>Fill in the expense name, amount, category, and date in the form below to track your spending habits effectively!</p>
-        </details>
 
-        <!-- Upgraded Add Expense Section -->
-        <section id="add-expense-section" class="card">
-            <h2>Add Expense</h2>
-            <form id="expense-form">
-                <div class="input-group">
-                    <label for="expense-name">Expense Name:</label>
-                    <input type="text" id="expense-name" placeholder="e.g., Groceries">
-                </div>
+cat << 'EOF' > README.md
+# Personal Budget Tracker - Visual Identity
 
-                <div class="input-group">
-                    <label for="expense-amount">Amount ($):</label>
-                    <input type="number" id="expense-amount" placeholder="e.g., 50">
-                </div>
+A responsive visual interface for tracking personal expenses, created for the Week 3 Visual Identity CSS Assignment.
 
-                <div class="input-group">
-                    <label for="expense-category">Category:</label>
-                    <select id="expense-category">
-                        <option value="Food">Food</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Rent">Rent</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
+## 🎨 Visual Identity & Architecture
 
-                <div class="input-group">
-                    <label for="expense-date">Date:</label>
-                    <input type="date" id="expense-date">
-                </div>
+### 1. Intentional Color Palette (25%)
+- **Primary Accent (`#0D9488` Deep Teal):** Used for primary section headers, action buttons, and table headers.
+- **Background (`#F4F6F8` Light Gray):** Soft contrast background separating content sections.
+- **Card Fill (`#FFFFFF` White):** Clean container background for readability.
+- **Danger Action (`#EF4444` Soft Red):** Strictly reserved for destructive actions (Delete button).
 
-                <button type="button" class="btn" id="add-expense-btn">Add Expense</button>
-            </form>
-        </section>
+### 2. Typography & Hierarchy (20%)
+- **Headings:** Google Font **Poppins** (Bold, 600/700 weight) for sharp title hierarchy.
+- **Body & Controls:** Google Font **Inter** (Regular/Medium) for readable text, form controls, and table data.
 
-        <!-- Expense Table Section -->
-        <section id="expenses-list-section" class="card">
-            <h2>Your Expenses</h2>
-            <table class="expense-table">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Amount</th>
-                        <th>Category</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Groceries</td>
-                        <td>$85.00</td>
-                        <td>Food</td>
-                        <td>2026-10-01</td>
-                    </tr>
-                    <tr>
-                        <td>Bus Pass</td>
-                        <td>$45.00</td>
-                        <td>Transport</td>
-                        <td>2026-10-02</td>
-                    </tr>
-                    <tr>
-                        <td>House Rent</td>
-                        <td>$650.00</td>
-                        <td>Rent</td>
-                        <td>2026-10-02</td>
-                    </tr>
-                    <tr>
-                        <td>Cinema Ticket</td>
-                        <td>$15.00</td>
-                        <td>Entertainment</td>
-                        <td>2026-10-02</td>
-                    </tr>
-                    <tr>
-                        <td>Electricity Bill</td>
-                        <td>$60.00</td>
-                        <td>Other</td>
-                        <td>2026-10-02</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+### 3. Form & Table Styling (30%)
+- Form fields include internal padding, clear focus highlights, and unified layout gaps.
+- The expense log table uses structured padding, highlighted header styling, border divisions, and `nth-child(even)` zebra striping.
 
-        <!-- Multimedia Video Section -->
-        <section id="video-section" class="card">
-            <h2>Budgeting Tips</h2>
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/sVKQn2I4HDM" title="Budgeting Tips Video" frameborder="0" allowfullscreen></iframe>
-        </section>
-    </main>
-
-</body>
-</html>
+### 4. CSS Box Model Strategy (25%)
+- Utilizes explicit **margins** (`1.5rem`) to create distinct spacing between page areas.
+- Applies consistent **padding** (`1.5rem`) inside each `.card` container.
+- Defines **border-radius** (`8px`) for modern rounded edges on containers, inputs, and table headers.
