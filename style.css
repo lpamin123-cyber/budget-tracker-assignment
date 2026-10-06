@@ -1,122 +1,148 @@
-/* Reset basic spacing */
+/* 1. Color Palette & Variables */
+:root {
+  --color-bg: #F4F6F8;
+  --color-card-bg: #FFFFFF;
+  --color-text-main: #1F2937;
+  --color-text-muted: #6B7280;
+  --color-primary: #0D9488;
+  --color-primary-hover: #0F766E;
+  --color-danger: #EF4444;
+  --color-danger-hover: #DC2626;
+  --color-border: #E5E7EB;
+  --color-row-alt: #F9FAFB;
+}
+
+/* 2. Reset & Custom Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Header & Logo */
-#main-header {
-    text-align: center;
-    background-color: #2c3e50;
-    color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
 }
 
-#main-header .logo {
-    vertical-align: middle;
-    margin-right: 10px;
-}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.35rem; margin-bottom: 1rem; }
 
-#main-header h1 {
-    display: inline-block;
-    margin: 0;
-    vertical-align: middle;
-}
-
-/* Card Sections */
+/* 3. CSS Box Model & Card Structure */
 .card {
-    background-color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.instructions summary {
-    font-weight: bold;
-    cursor: pointer;
+.header-card p {
+  color: var(--color-text-muted);
 }
 
-/* Direct Child Selector (Requirement) */
-#add-expense-section > h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
+/* 4. Form Styling */
+#expense-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-/* Form Styles & Focus State (Requirement) */
-.input-group {
-    margin-bottom: 15px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.input-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
 }
 
-.input-group input, .input-group select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+input, select {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  padding: 0.625rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  outline: none;
+  background-color: #FFFFFF;
 }
 
-/* Focus State Selector (Requirement) */
 input:focus, select:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  border-color: var(--color-primary);
 }
 
-/* Negation Pseudo-class Selector (Requirement) */
-input:not([type="button"]) {
-    background-color: #fafafa;
-}
-
+/* Buttons */
 .btn {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.btn:hover {
-    background-color: #2980b9;
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
 }
 
-/* Table Styling & Descendant Selectors (Requirement) */
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: #FFFFFF;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+}
+
+/* 5. Expense Table Styling */
 .expense-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
 }
 
-.expense-table th, .expense-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+.expense-table th {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
 }
 
-/* Position-based Pseudo-class Selector (Requirement) */
-.expense-table thead tr {
-    background-color: #2c3e50;
-    color: #ffffff;
+.expense-table th:first-child { border-top-left-radius: 6px; }
+.expense-table th:last-child { border-top-right-radius: 6px; }
+
+.expense-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
+/* Alternating Row Colors */
 .expense-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: var(--color-row-alt);
 }
 
-/* Table Row Hover State */
 .expense-table tbody tr:hover {
-    background-color: #eaf2f8;
+  background-color: #F3F4F6;
 }
